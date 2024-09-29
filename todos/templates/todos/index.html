@@ -4,7 +4,7 @@
 <title>Todo list</title>
 {% endblock %}
 
-{% block content %}
+//{% block content %}
 <div class="container">
   <!-- title row -->
   <div class="row">
@@ -21,7 +21,7 @@
   <div class="row">
     <div class="offset-md-2 col-lg-9">
       <form method="post" action="{% url 'todos:add' %}">
-        {% csrf_token %}
+       // {% csrf_token %}
         <div class="form-row">
           <div class="col-md-6">
             <input type="text" class="form-control" name="title" placeholder="Do laundry" required>
@@ -44,7 +44,7 @@
         {% for todo in todo_list %}
         <div class="list-group-item {% if todo.isCompleted %} todo-complete {% endif %}">
           <form style="display: inline;" method="post" action="{% url 'todos:update' todo.id %}">
-            {% csrf_token %}
+           // {% csrf_token %}
             <input type="checkbox" name="isCompleted" onchange="this.form.submit()" {% if todo.isCompleted %} checked
               {% endif %} class="todo-status-checkbox"
               title="{% if not todo.isCompleted %} mark as done {% else %} mark undone {% endif %}">
