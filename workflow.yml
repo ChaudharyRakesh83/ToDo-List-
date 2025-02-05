@@ -4,10 +4,10 @@ name: Simple CI Workflow
 on:
   push:
     branches:
-      - main
+      - develop
   pull_request:
     branches:
-      - main
+      - develop
 
 # Define jobs that will run as part of this workflow
 jobs:
