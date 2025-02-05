@@ -1,0 +1,35 @@
+name: Simple CI Workflow
+
+# Trigger the workflow on push or pull request events to the main branch
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Define jobs that will run as part of this workflow
+jobs:
+  build:
+    # Specify that the job will run on the self-hosted runner
+    runs-on: self-hosted
+
+    steps:
+      # Step 1: Check out the repository code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Node.js (optional step, remove if not needed)
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      # Step 3: Install dependencies (remove if you don't need this step)
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run tests (optional, remove if no tests)
+      - name: Run tests
+        run: npm test
